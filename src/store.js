@@ -12,7 +12,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     searchResults: [],
-    activeMovies: {}
+    activeSong: {}
   },
   mutations: {
 setResults(state, results) {
@@ -26,12 +26,14 @@ setActiveSong(state, song) {
     search({ commit, dispatch }, query) {
       songApi.get("search?&term=" + query)
         .then(res => {
-          let data = res.data.results
+          let data = res.data.results.map(s=>{
+            return {...s, img: s.artworkUrl100.replace(/100x100/g, "300x300")}
+          })
           commit('setResults', data)
         })
     },
-    setActiveSong({ commit, dispatch }, query) {
-      commit('setActiveSong', song)
+    setActiveSong({ commit, dispatch }, payload) {
+      commit('setActiveSong', payload)
     }
   }
 })

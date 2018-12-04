@@ -6,6 +6,7 @@
         <div class="row">
             <result v-for="(res) in results" class="col-12" :setActiveCB="setActive" :class="{active: res.trackName == previewedSong}"
                 :songData="res">
+                
             </result>
         </div>
     </div>
@@ -39,7 +40,7 @@ export default {
 
 <style>
 .results {
-    background: blue
+    background: rgb(190, 187, 187)
 }
 
 

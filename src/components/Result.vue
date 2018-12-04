@@ -1,13 +1,14 @@
 <template>
   <div class="result">
-<h4 @click="setActive">{{songData.trackName}}</h4>
+<h4 @click="setActive">{{songData.trackName}} - {{songData.collectionName}}</h4>
+<img :src="songData.artworkUrl100">
   </div>
 </template>
 
 <script>
   export default {
     name: 'result',
-    props: ['songData'],
+    props: ['songData', 'setActiveCB'],
     data() {
       return {
 

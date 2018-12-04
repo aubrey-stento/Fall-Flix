@@ -7,7 +7,7 @@
     </div>
      <div class="row">
       <div class="col">
-        <p>Searching for: {{query}}</p>
+        <h4>Searching For: {{query}}</h4>
         <form @submit.prevent="search">
           <input type="text" placeholder="Search" v-model='query'>
           <button type="submit">Search</button>
@@ -28,7 +28,7 @@
 
 <script>
 import Results from '@/components/Results.vue'
-//import Preview from '@components/Preview.vue'
+import Preview from '@/components/Preview.vue'
 export default {
     name: 'home',
     data() {
@@ -48,13 +48,13 @@ export default {
     },
     components: {
       Results,
-      //Preview
+      Preview
     }
   }
 </script>
 
 <style>
   .home {
-    background-color: blue
+    background-color: rgb(240, 239, 233)
   }
 </style>
